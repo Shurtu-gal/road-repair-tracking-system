@@ -1,0 +1,25 @@
+{
+  "name": "road-repair-tracking-system",
+  "version": "1.0.0",
+  "description": "Project made for SWE course",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shurtu-gal/road-repair-tracking-system.git"
+  },
+  "keywords": [
+    "RRTS",
+    "SWE",
+    "NestJS",
+    "Backend",
+    "Projects"
+  ],
+  "author": "Ashish Padhy <100484401+Shurtu-gal@users.noreply.github.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Shurtu-gal/road-repair-tracking-system/issues"
+  },
+  "homepage": "https://github.com/Shurtu-gal/road-repair-tracking-system#readme",
+  "workspaces": [
+    "**/*"
+  ]
+}
