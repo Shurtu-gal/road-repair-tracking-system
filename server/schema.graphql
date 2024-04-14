@@ -1,0 +1,1274 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Admin {
+  createdAt: DateTime!
+  deletedAt: DateTime
+  id: String!
+  mayor: Mayor
+  repairSchedules(orderBy: [RepairScheduleOrderByInput!], skip: Float, take: Float, where: RepairScheduleWhereInput): [RepairSchedule!]!
+  resources(orderBy: [ResourceOrderByInput!], skip: Float, take: Float, where: ResourceWhereInput): [Resource!]!
+  supervisors(orderBy: [SupervisorOrderByInput!], skip: Float, take: Float, where: SupervisorWhereInput): [Supervisor!]!
+  updatedAt: DateTime!
+  user: User
+}
+
+input AdminCreateInput {
+  deletedAt: DateTime
+  mayor: MayorWhereUniqueInput!
+  repairSchedules: RepairScheduleCreateNestedManyWithoutAdminsInput
+  resources: ResourceCreateNestedManyWithoutAdminsInput
+  supervisors: SupervisorCreateNestedManyWithoutAdminsInput
+  user: UserWhereUniqueInput!
+}
+
+input AdminCreateNestedManyWithoutMayorsInput {
+  connect: [AdminWhereUniqueInput!]
+}
+
+input AdminListRelationFilter {
+  every: AdminWhereInput
+  none: AdminWhereInput
+  some: AdminWhereInput
+}
+
+input AdminOrderByInput {
+  createdAt: SortOrder
+  deletedAt: SortOrder
+  id: SortOrder
+  mayorId: SortOrder
+  updatedAt: SortOrder
+  userId: SortOrder
+}
+
+input AdminUpdateInput {
+  deletedAt: DateTime
+  mayor: MayorWhereUniqueInput
+  repairSchedules: RepairScheduleUpdateManyWithoutAdminsInput
+  resources: ResourceUpdateManyWithoutAdminsInput
+  supervisors: SupervisorUpdateManyWithoutAdminsInput
+  user: UserWhereUniqueInput
+}
+
+input AdminUpdateManyWithoutMayorsInput {
+  connect: [AdminWhereUniqueInput!]
+  disconnect: [AdminWhereUniqueInput!]
+  set: [AdminWhereUniqueInput!]
+}
+
+input AdminWhereInput {
+  createdAt: DateTimeFilter
+  deletedAt: DateTimeNullableFilter
+  id: StringFilter
+  mayor: MayorWhereUniqueInput
+  repairSchedules: RepairScheduleListRelationFilter
+  resources: ResourceListRelationFilter
+  supervisors: SupervisorListRelationFilter
+  updatedAt: DateTimeFilter
+  user: UserWhereUniqueInput
+}
+
+input AdminWhereUniqueInput {
+  id: String!
+}
+
+type Area {
+  address: String!
+  complaint(orderBy: [ComplaintOrderByInput!], skip: Float, take: Float, where: ComplaintWhereInput): [Complaint!]!
+  country: String!
+  createdAt: DateTime!
+  deletedAt: DateTime
+  id: String!
+  name: String!
+  region: String!
+  repair(orderBy: [RepairOrderByInput!], skip: Float, take: Float, where: RepairWhereInput): [Repair!]!
+  residents(orderBy: [ResidentOrderByInput!], skip: Float, take: Float, where: ResidentWhereInput): [Resident!]!
+  supervisors(orderBy: [SupervisorOrderByInput!], skip: Float, take: Float, where: SupervisorWhereInput): [Supervisor!]!
+  updatedAt: DateTime!
+}
+
+input AreaCreateInput {
+  address: String!
+  complaint: ComplaintCreateNestedManyWithoutAreasInput
+  country: String!
+  deletedAt: DateTime
+  name: String!
+  region: String!
+  repair: RepairCreateNestedManyWithoutAreasInput
+  residents: ResidentCreateNestedManyWithoutAreasInput
+  supervisors: SupervisorCreateNestedManyWithoutAreasInput
+}
+
+input AreaOrderByInput {
+  address: SortOrder
+  country: SortOrder
+  createdAt: SortOrder
+  deletedAt: SortOrder
+  id: SortOrder
+  name: SortOrder
+  region: SortOrder
+  updatedAt: SortOrder
+}
+
+input AreaUpdateInput {
+  address: String
+  complaint: ComplaintUpdateManyWithoutAreasInput
+  country: String
+  deletedAt: DateTime
+  name: String
+  region: String
+  repair: RepairUpdateManyWithoutAreasInput
+  residents: ResidentUpdateManyWithoutAreasInput
+  supervisors: SupervisorUpdateManyWithoutAreasInput
+}
+
+input AreaWhereInput {
+  address: StringFilter
+  complaint: ComplaintListRelationFilter
+  country: StringFilter
+  createdAt: DateTimeFilter
+  deletedAt: DateTimeNullableFilter
+  id: StringFilter
+  name: StringFilter
+  region: StringFilter
+  repair: RepairListRelationFilter
+  residents: ResidentListRelationFilter
+  supervisors: SupervisorListRelationFilter
+  updatedAt: DateTimeFilter
+}
+
+input AreaWhereUniqueInput {
+  id: String!
+}
+
+input BooleanFilter {
+  equals: Boolean
+  not: Boolean
+}
+
+type Complaint {
+  area: Area
+  createdAt: DateTime!
+  deletedAt: DateTime
+  description: String!
+  id: String!
+  repair: Repair
+  report: Report
+  residents: Resident
+  road: String!
+  severity: EnumComplaintSeverity
+  status: EnumComplaintStatus
+  subscription: Boolean!
+  update: Update
+  updatedAt: DateTime!
+  user: User
+}
+
+input ComplaintCreateInput {
+  area: AreaWhereUniqueInput!
+  deletedAt: DateTime
+  description: String!
+  repair: RepairWhereUniqueInput
+  report: ReportWhereUniqueInput
+  residents: ResidentWhereUniqueInput
+  road: String!
+  severity: EnumComplaintSeverity!
+  status: EnumComplaintStatus!
+  subscription: Boolean!
+  update: UpdateWhereUniqueInput
+  user: UserWhereUniqueInput!
+}
+
+input ComplaintCreateNestedManyWithoutAreasInput {
+  connect: [ComplaintWhereUniqueInput!]
+}
+
+input ComplaintCreateNestedManyWithoutRepairsInput {
+  connect: [ComplaintWhereUniqueInput!]
+}
+
+input ComplaintCreateNestedManyWithoutReportsInput {
+  connect: [ComplaintWhereUniqueInput!]
+}
+
+input ComplaintCreateNestedManyWithoutResidentsInput {
+  connect: [ComplaintWhereUniqueInput!]
+}
+
+input ComplaintCreateNestedManyWithoutUpdatesInput {
+  connect: [ComplaintWhereUniqueInput!]
+}
+
+input ComplaintCreateNestedManyWithoutUsersInput {
+  connect: [ComplaintWhereUniqueInput!]
+}
+
+input ComplaintListRelationFilter {
+  every: ComplaintWhereInput
+  none: ComplaintWhereInput
+  some: ComplaintWhereInput
+}
+
+input ComplaintOrderByInput {
+  areaId: SortOrder
+  createdAt: SortOrder
+  deletedAt: SortOrder
+  description: SortOrder
+  id: SortOrder
+  repairId: SortOrder
+  reportId: SortOrder
+  residentsId: SortOrder
+  road: SortOrder
+  severity: SortOrder
+  status: SortOrder
+  subscription: SortOrder
+  updateId: SortOrder
+  updatedAt: SortOrder
+  userId: SortOrder
+}
+
+input ComplaintUpdateInput {
+  area: AreaWhereUniqueInput
+  deletedAt: DateTime
+  description: String
+  repair: RepairWhereUniqueInput
+  report: ReportWhereUniqueInput
+  residents: ResidentWhereUniqueInput
+  road: String
+  severity: EnumComplaintSeverity
+  status: EnumComplaintStatus
+  subscription: Boolean
+  update: UpdateWhereUniqueInput
+  user: UserWhereUniqueInput
+}
+
+input ComplaintUpdateManyWithoutAreasInput {
+  connect: [ComplaintWhereUniqueInput!]
+  disconnect: [ComplaintWhereUniqueInput!]
+  set: [ComplaintWhereUniqueInput!]
+}
+
+input ComplaintUpdateManyWithoutRepairsInput {
+  connect: [ComplaintWhereUniqueInput!]
+  disconnect: [ComplaintWhereUniqueInput!]
+  set: [ComplaintWhereUniqueInput!]
+}
+
+input ComplaintUpdateManyWithoutReportsInput {
+  connect: [ComplaintWhereUniqueInput!]
+  disconnect: [ComplaintWhereUniqueInput!]
+  set: [ComplaintWhereUniqueInput!]
+}
+
+input ComplaintUpdateManyWithoutResidentsInput {
+  connect: [ComplaintWhereUniqueInput!]
+  disconnect: [ComplaintWhereUniqueInput!]
+  set: [ComplaintWhereUniqueInput!]
+}
+
+input ComplaintUpdateManyWithoutUpdatesInput {
+  connect: [ComplaintWhereUniqueInput!]
+  disconnect: [ComplaintWhereUniqueInput!]
+  set: [ComplaintWhereUniqueInput!]
+}
+
+input ComplaintUpdateManyWithoutUsersInput {
+  connect: [ComplaintWhereUniqueInput!]
+  disconnect: [ComplaintWhereUniqueInput!]
+  set: [ComplaintWhereUniqueInput!]
+}
+
+input ComplaintWhereInput {
+  area: AreaWhereUniqueInput
+  createdAt: DateTimeFilter
+  deletedAt: DateTimeNullableFilter
+  description: StringFilter
+  id: StringFilter
+  repair: RepairWhereUniqueInput
+  report: ReportWhereUniqueInput
+  residents: ResidentWhereUniqueInput
+  road: StringFilter
+  severity: EnumComplaintSeverity
+  status: EnumComplaintStatus
+  subscription: BooleanFilter
+  update: UpdateWhereUniqueInput
+  updatedAt: DateTimeFilter
+  user: UserWhereUniqueInput
+}
+
+input ComplaintWhereUniqueInput {
+  id: String!
+}
+
+input Credentials {
+  password: String!
+  username: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input DateTimeFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: DateTime
+  notIn: [DateTime!]
+}
+
+input DateTimeNullableFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: DateTime
+  notIn: [DateTime!]
+}
+
+enum EnumComplaintSeverity {
+  High
+  Low
+  Medium
+}
+
+enum EnumComplaintStatus {
+  Completed
+  InProgress
+  Pending
+}
+
+enum EnumRepairPriority {
+  High
+  Low
+  Medium
+}
+
+enum EnumRepairStatus {
+  Completed
+  InProgress
+  Pending
+}
+
+input IntFilter {
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: Int
+  notIn: [Int!]
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+type Mayor {
+  admin(orderBy: [AdminOrderByInput!], skip: Float, take: Float, where: AdminWhereInput): [Admin!]!
+  city: String!
+  createdAt: DateTime!
+  deletedAt: DateTime
+  id: String!
+  reports(orderBy: [ReportOrderByInput!], skip: Float, take: Float, where: ReportWhereInput): [Report!]!
+  updatedAt: DateTime!
+  user: User
+}
+
+input MayorCreateInput {
+  admin: AdminCreateNestedManyWithoutMayorsInput
+  city: String!
+  deletedAt: DateTime
+  reports: ReportCreateNestedManyWithoutMayorsInput
+  user: UserWhereUniqueInput!
+}
+
+input MayorOrderByInput {
+  city: SortOrder
+  createdAt: SortOrder
+  deletedAt: SortOrder
+  id: SortOrder
+  updatedAt: SortOrder
+  userId: SortOrder
+}
+
+input MayorUpdateInput {
+  admin: AdminUpdateManyWithoutMayorsInput
+  city: String
+  deletedAt: DateTime
+  reports: ReportUpdateManyWithoutMayorsInput
+  user: UserWhereUniqueInput
+}
+
+input MayorWhereInput {
+  admin: AdminListRelationFilter
+  city: StringFilter
+  createdAt: DateTimeFilter
+  deletedAt: DateTimeNullableFilter
+  id: StringFilter
+  reports: ReportListRelationFilter
+  updatedAt: DateTimeFilter
+  user: UserWhereUniqueInput
+}
+
+input MayorWhereUniqueInput {
+  id: String!
+}
+
+type MetaQueryPayload {
+  count: Float!
+}
+
+type Mutation {
+  createAdmin(data: AdminCreateInput!): Admin!
+  createArea(data: AreaCreateInput!): Area!
+  createComplaint(data: ComplaintCreateInput!): Complaint!
+  createMayor(data: MayorCreateInput!): Mayor!
+  createRepair(data: RepairCreateInput!): Repair!
+  createRepairSchedule(data: RepairScheduleCreateInput!): RepairSchedule!
+  createReport(data: ReportCreateInput!): Report!
+  createResident(data: ResidentCreateInput!): Resident!
+  createResource(data: ResourceCreateInput!): Resource!
+  createSupervisor(data: SupervisorCreateInput!): Supervisor!
+  createUpdate(data: UpdateCreateInput!): Update!
+  createUser(data: UserCreateInput!): User!
+  deleteAdmin(where: AdminWhereUniqueInput!): Admin!
+  deleteArea(where: AreaWhereUniqueInput!): Area!
+  deleteComplaint(where: ComplaintWhereUniqueInput!): Complaint!
+  deleteMayor(where: MayorWhereUniqueInput!): Mayor!
+  deleteRepair(where: RepairWhereUniqueInput!): Repair!
+  deleteRepairSchedule(where: RepairScheduleWhereUniqueInput!): RepairSchedule!
+  deleteReport(where: ReportWhereUniqueInput!): Report!
+  deleteResident(where: ResidentWhereUniqueInput!): Resident!
+  deleteResource(where: ResourceWhereUniqueInput!): Resource!
+  deleteSupervisor(where: SupervisorWhereUniqueInput!): Supervisor!
+  deleteUpdate(where: UpdateWhereUniqueInput!): Update!
+  deleteUser(where: UserWhereUniqueInput!): User!
+  login(credentials: Credentials!): UserInfo!
+  updateAdmin(data: AdminUpdateInput!, where: AdminWhereUniqueInput!): Admin!
+  updateArea(data: AreaUpdateInput!, where: AreaWhereUniqueInput!): Area!
+  updateComplaint(data: ComplaintUpdateInput!, where: ComplaintWhereUniqueInput!): Complaint!
+  updateMayor(data: MayorUpdateInput!, where: MayorWhereUniqueInput!): Mayor!
+  updateRepair(data: RepairUpdateInput!, where: RepairWhereUniqueInput!): Repair!
+  updateRepairSchedule(data: RepairScheduleUpdateInput!, where: RepairScheduleWhereUniqueInput!): RepairSchedule!
+  updateReport(data: ReportUpdateInput!, where: ReportWhereUniqueInput!): Report!
+  updateResident(data: ResidentUpdateInput!, where: ResidentWhereUniqueInput!): Resident!
+  updateResource(data: ResourceUpdateInput!, where: ResourceWhereUniqueInput!): Resource!
+  updateSupervisor(data: SupervisorUpdateInput!, where: SupervisorWhereUniqueInput!): Supervisor!
+  updateUpdate(data: UpdateUpdateInput!, where: UpdateWhereUniqueInput!): Update!
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User!
+}
+
+type Query {
+  _adminsMeta(where: AdminWhereInput): MetaQueryPayload!
+  _areasMeta(where: AreaWhereInput): MetaQueryPayload!
+  _complaintsMeta(where: ComplaintWhereInput): MetaQueryPayload!
+  _mayorsMeta(where: MayorWhereInput): MetaQueryPayload!
+  _repairSchedulesMeta(where: RepairScheduleWhereInput): MetaQueryPayload!
+  _repairsMeta(where: RepairWhereInput): MetaQueryPayload!
+  _reportsMeta(where: ReportWhereInput): MetaQueryPayload!
+  _residentsMeta(where: ResidentWhereInput): MetaQueryPayload!
+  _resourcesMeta(where: ResourceWhereInput): MetaQueryPayload!
+  _supervisorsMeta(where: SupervisorWhereInput): MetaQueryPayload!
+  _updatesMeta(where: UpdateWhereInput): MetaQueryPayload!
+  _usersMeta(where: UserWhereInput): MetaQueryPayload!
+  admin(where: AdminWhereUniqueInput!): Admin
+  admins(orderBy: [AdminOrderByInput!], skip: Float, take: Float, where: AdminWhereInput): [Admin!]!
+  area(where: AreaWhereUniqueInput!): Area
+  areas(orderBy: [AreaOrderByInput!], skip: Float, take: Float, where: AreaWhereInput): [Area!]!
+  complaint(where: ComplaintWhereUniqueInput!): Complaint
+  complaints(orderBy: [ComplaintOrderByInput!], skip: Float, take: Float, where: ComplaintWhereInput): [Complaint!]!
+  mayor(where: MayorWhereUniqueInput!): Mayor
+  mayors(orderBy: [MayorOrderByInput!], skip: Float, take: Float, where: MayorWhereInput): [Mayor!]!
+  repair(where: RepairWhereUniqueInput!): Repair
+  repairSchedule(where: RepairScheduleWhereUniqueInput!): RepairSchedule
+  repairSchedules(orderBy: [RepairScheduleOrderByInput!], skip: Float, take: Float, where: RepairScheduleWhereInput): [RepairSchedule!]!
+  repairs(orderBy: [RepairOrderByInput!], skip: Float, take: Float, where: RepairWhereInput): [Repair!]!
+  report(where: ReportWhereUniqueInput!): Report
+  reports(orderBy: [ReportOrderByInput!], skip: Float, take: Float, where: ReportWhereInput): [Report!]!
+  resident(where: ResidentWhereUniqueInput!): Resident
+  residents(orderBy: [ResidentOrderByInput!], skip: Float, take: Float, where: ResidentWhereInput): [Resident!]!
+  resource(where: ResourceWhereUniqueInput!): Resource
+  resources(orderBy: [ResourceOrderByInput!], skip: Float, take: Float, where: ResourceWhereInput): [Resource!]!
+  supervisor(where: SupervisorWhereUniqueInput!): Supervisor
+  supervisors(orderBy: [SupervisorOrderByInput!], skip: Float, take: Float, where: SupervisorWhereInput): [Supervisor!]!
+  update(where: UpdateWhereUniqueInput!): Update
+  updates(orderBy: [UpdateOrderByInput!], skip: Float, take: Float, where: UpdateWhereInput): [Update!]!
+  user(where: UserWhereUniqueInput!): User
+  userInfo: UserInfo!
+  users(orderBy: [UserOrderByInput!], skip: Float, take: Float, where: UserWhereInput): [User!]!
+}
+
+enum QueryMode {
+  Default
+  Insensitive
+}
+
+type Repair {
+  area: Area
+  assignedTo: User
+  complaints(orderBy: [ComplaintOrderByInput!], skip: Float, take: Float, where: ComplaintWhereInput): [Complaint!]!
+  createdAt: DateTime!
+  deletedAt: DateTime
+  id: String!
+  priority: EnumRepairPriority
+  repairSchedule: RepairSchedule
+  resources(orderBy: [ResourceOrderByInput!], skip: Float, take: Float, where: ResourceWhereInput): [Resource!]!
+  status: EnumRepairStatus
+  supervisors: Supervisor
+  updatedAt: DateTime!
+}
+
+input RepairCreateInput {
+  area: AreaWhereUniqueInput!
+  assignedTo: UserWhereUniqueInput!
+  complaints: ComplaintCreateNestedManyWithoutRepairsInput
+  deletedAt: DateTime
+  priority: EnumRepairPriority!
+  repairSchedule: RepairScheduleWhereUniqueInput
+  resources: ResourceCreateNestedManyWithoutRepairsInput
+  status: EnumRepairStatus!
+  supervisors: SupervisorWhereUniqueInput
+}
+
+input RepairCreateNestedManyWithoutAreasInput {
+  connect: [RepairWhereUniqueInput!]
+}
+
+input RepairCreateNestedManyWithoutRepairSchedulesInput {
+  connect: [RepairWhereUniqueInput!]
+}
+
+input RepairCreateNestedManyWithoutSupervisorsInput {
+  connect: [RepairWhereUniqueInput!]
+}
+
+input RepairCreateNestedManyWithoutUsersInput {
+  connect: [RepairWhereUniqueInput!]
+}
+
+input RepairListRelationFilter {
+  every: RepairWhereInput
+  none: RepairWhereInput
+  some: RepairWhereInput
+}
+
+input RepairOrderByInput {
+  areaId: SortOrder
+  assignedToId: SortOrder
+  createdAt: SortOrder
+  deletedAt: SortOrder
+  id: SortOrder
+  priority: SortOrder
+  repairScheduleId: SortOrder
+  status: SortOrder
+  supervisorsId: SortOrder
+  updatedAt: SortOrder
+}
+
+type RepairSchedule {
+  admin: Admin
+  createdAt: DateTime!
+  deletedAt: DateTime
+  id: String!
+  repairs(orderBy: [RepairOrderByInput!], skip: Float, take: Float, where: RepairWhereInput): [Repair!]!
+  report(orderBy: [ReportOrderByInput!], skip: Float, take: Float, where: ReportWhereInput): [Report!]!
+  supervisors(orderBy: [SupervisorOrderByInput!], skip: Float, take: Float, where: SupervisorWhereInput): [Supervisor!]!
+  time: DateTime!
+  updatedAt: DateTime!
+}
+
+input RepairScheduleCreateInput {
+  admin: AdminWhereUniqueInput
+  deletedAt: DateTime
+  repairs: RepairCreateNestedManyWithoutRepairSchedulesInput
+  report: ReportCreateNestedManyWithoutRepairSchedulesInput
+  supervisors: SupervisorCreateNestedManyWithoutRepairSchedulesInput
+  time: DateTime!
+}
+
+input RepairScheduleCreateNestedManyWithoutAdminsInput {
+  connect: [RepairScheduleWhereUniqueInput!]
+}
+
+input RepairScheduleListRelationFilter {
+  every: RepairScheduleWhereInput
+  none: RepairScheduleWhereInput
+  some: RepairScheduleWhereInput
+}
+
+input RepairScheduleOrderByInput {
+  AdminId: SortOrder
+  createdAt: SortOrder
+  deletedAt: SortOrder
+  id: SortOrder
+  time: SortOrder
+  updatedAt: SortOrder
+}
+
+input RepairScheduleUpdateInput {
+  admin: AdminWhereUniqueInput
+  deletedAt: DateTime
+  repairs: RepairUpdateManyWithoutRepairSchedulesInput
+  report: ReportUpdateManyWithoutRepairSchedulesInput
+  supervisors: SupervisorUpdateManyWithoutRepairSchedulesInput
+  time: DateTime
+}
+
+input RepairScheduleUpdateManyWithoutAdminsInput {
+  connect: [RepairScheduleWhereUniqueInput!]
+  disconnect: [RepairScheduleWhereUniqueInput!]
+  set: [RepairScheduleWhereUniqueInput!]
+}
+
+input RepairScheduleWhereInput {
+  admin: AdminWhereUniqueInput
+  createdAt: DateTimeFilter
+  deletedAt: DateTimeNullableFilter
+  id: StringFilter
+  repairs: RepairListRelationFilter
+  report: ReportListRelationFilter
+  supervisors: SupervisorListRelationFilter
+  time: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
+input RepairScheduleWhereUniqueInput {
+  id: String!
+}
+
+input RepairUpdateInput {
+  area: AreaWhereUniqueInput
+  assignedTo: UserWhereUniqueInput
+  complaints: ComplaintUpdateManyWithoutRepairsInput
+  deletedAt: DateTime
+  priority: EnumRepairPriority
+  repairSchedule: RepairScheduleWhereUniqueInput
+  resources: ResourceUpdateManyWithoutRepairsInput
+  status: EnumRepairStatus
+  supervisors: SupervisorWhereUniqueInput
+}
+
+input RepairUpdateManyWithoutAreasInput {
+  connect: [RepairWhereUniqueInput!]
+  disconnect: [RepairWhereUniqueInput!]
+  set: [RepairWhereUniqueInput!]
+}
+
+input RepairUpdateManyWithoutRepairSchedulesInput {
+  connect: [RepairWhereUniqueInput!]
+  disconnect: [RepairWhereUniqueInput!]
+  set: [RepairWhereUniqueInput!]
+}
+
+input RepairUpdateManyWithoutSupervisorsInput {
+  connect: [RepairWhereUniqueInput!]
+  disconnect: [RepairWhereUniqueInput!]
+  set: [RepairWhereUniqueInput!]
+}
+
+input RepairUpdateManyWithoutUsersInput {
+  connect: [RepairWhereUniqueInput!]
+  disconnect: [RepairWhereUniqueInput!]
+  set: [RepairWhereUniqueInput!]
+}
+
+input RepairWhereInput {
+  area: AreaWhereUniqueInput
+  assignedTo: UserWhereUniqueInput
+  complaints: ComplaintListRelationFilter
+  createdAt: DateTimeFilter
+  deletedAt: DateTimeNullableFilter
+  id: StringFilter
+  priority: EnumRepairPriority
+  repairSchedule: RepairScheduleWhereUniqueInput
+  resources: ResourceListRelationFilter
+  status: EnumRepairStatus
+  supervisors: SupervisorWhereUniqueInput
+  updatedAt: DateTimeFilter
+}
+
+input RepairWhereUniqueInput {
+  id: String!
+}
+
+type Report {
+  complaints(orderBy: [ComplaintOrderByInput!], skip: Float, take: Float, where: ComplaintWhereInput): [Complaint!]!
+  createdAt: DateTime!
+  deletedAt: DateTime
+  id: String!
+  mayor: Mayor
+  repairSchedule: RepairSchedule
+  resources(orderBy: [ResourceOrderByInput!], skip: Float, take: Float, where: ResourceWhereInput): [Resource!]!
+  time: DateTime!
+  update(orderBy: [UpdateOrderByInput!], skip: Float, take: Float, where: UpdateWhereInput): [Update!]!
+  updatedAt: DateTime!
+}
+
+input ReportCreateInput {
+  complaints: ComplaintCreateNestedManyWithoutReportsInput
+  deletedAt: DateTime
+  mayor: MayorWhereUniqueInput
+  repairSchedule: RepairScheduleWhereUniqueInput!
+  resources: ResourceCreateNestedManyWithoutReportsInput
+  time: DateTime!
+  update: UpdateCreateNestedManyWithoutReportsInput
+}
+
+input ReportCreateNestedManyWithoutMayorsInput {
+  connect: [ReportWhereUniqueInput!]
+}
+
+input ReportCreateNestedManyWithoutRepairSchedulesInput {
+  connect: [ReportWhereUniqueInput!]
+}
+
+input ReportListRelationFilter {
+  every: ReportWhereInput
+  none: ReportWhereInput
+  some: ReportWhereInput
+}
+
+input ReportOrderByInput {
+  createdAt: SortOrder
+  deletedAt: SortOrder
+  id: SortOrder
+  mayorId: SortOrder
+  repairScheduleId: SortOrder
+  time: SortOrder
+  updatedAt: SortOrder
+}
+
+input ReportUpdateInput {
+  complaints: ComplaintUpdateManyWithoutReportsInput
+  deletedAt: DateTime
+  mayor: MayorWhereUniqueInput
+  repairSchedule: RepairScheduleWhereUniqueInput
+  resources: ResourceUpdateManyWithoutReportsInput
+  time: DateTime
+  update: UpdateUpdateManyWithoutReportsInput
+}
+
+input ReportUpdateManyWithoutMayorsInput {
+  connect: [ReportWhereUniqueInput!]
+  disconnect: [ReportWhereUniqueInput!]
+  set: [ReportWhereUniqueInput!]
+}
+
+input ReportUpdateManyWithoutRepairSchedulesInput {
+  connect: [ReportWhereUniqueInput!]
+  disconnect: [ReportWhereUniqueInput!]
+  set: [ReportWhereUniqueInput!]
+}
+
+input ReportWhereInput {
+  complaints: ComplaintListRelationFilter
+  createdAt: DateTimeFilter
+  deletedAt: DateTimeNullableFilter
+  id: StringFilter
+  mayor: MayorWhereUniqueInput
+  repairSchedule: RepairScheduleWhereUniqueInput
+  resources: ResourceListRelationFilter
+  time: DateTimeFilter
+  update: UpdateListRelationFilter
+  updatedAt: DateTimeFilter
+}
+
+input ReportWhereUniqueInput {
+  id: String!
+}
+
+type Resident {
+  area: Area
+  complaints(orderBy: [ComplaintOrderByInput!], skip: Float, take: Float, where: ComplaintWhereInput): [Complaint!]!
+  createdAt: DateTime!
+  deletedAt: DateTime
+  id: String!
+  updatedAt: DateTime!
+  updates(orderBy: [UpdateOrderByInput!], skip: Float, take: Float, where: UpdateWhereInput): [Update!]!
+  user: User
+}
+
+input ResidentCreateInput {
+  area: AreaWhereUniqueInput!
+  complaints: ComplaintCreateNestedManyWithoutResidentsInput
+  deletedAt: DateTime
+  updates: UpdateCreateNestedManyWithoutResidentsInput
+  user: UserWhereUniqueInput!
+}
+
+input ResidentCreateNestedManyWithoutAreasInput {
+  connect: [ResidentWhereUniqueInput!]
+}
+
+input ResidentListRelationFilter {
+  every: ResidentWhereInput
+  none: ResidentWhereInput
+  some: ResidentWhereInput
+}
+
+input ResidentOrderByInput {
+  areaId: SortOrder
+  createdAt: SortOrder
+  deletedAt: SortOrder
+  id: SortOrder
+  updatedAt: SortOrder
+  userId: SortOrder
+}
+
+input ResidentUpdateInput {
+  area: AreaWhereUniqueInput
+  complaints: ComplaintUpdateManyWithoutResidentsInput
+  deletedAt: DateTime
+  updates: UpdateUpdateManyWithoutResidentsInput
+  user: UserWhereUniqueInput
+}
+
+input ResidentUpdateManyWithoutAreasInput {
+  connect: [ResidentWhereUniqueInput!]
+  disconnect: [ResidentWhereUniqueInput!]
+  set: [ResidentWhereUniqueInput!]
+}
+
+input ResidentWhereInput {
+  area: AreaWhereUniqueInput
+  complaints: ComplaintListRelationFilter
+  createdAt: DateTimeFilter
+  deletedAt: DateTimeNullableFilter
+  id: StringFilter
+  updatedAt: DateTimeFilter
+  updates: UpdateListRelationFilter
+  user: UserWhereUniqueInput
+}
+
+input ResidentWhereUniqueInput {
+  id: String!
+}
+
+type Resource {
+  admin: Admin
+  allocation: Repair
+  createdAt: DateTime!
+  deletedAt: DateTime
+  id: String!
+  name: String!
+  price: Float!
+  quantity: Float!
+  report: Report
+  supervisors: Supervisor
+  updatedAt: DateTime!
+}
+
+input ResourceCreateInput {
+  admin: AdminWhereUniqueInput
+  allocation: RepairWhereUniqueInput!
+  deletedAt: DateTime
+  name: String!
+  price: Float!
+  quantity: Float!
+  report: ReportWhereUniqueInput
+  supervisors: SupervisorWhereUniqueInput
+}
+
+input ResourceCreateNestedManyWithoutAdminsInput {
+  connect: [ResourceWhereUniqueInput!]
+}
+
+input ResourceCreateNestedManyWithoutRepairsInput {
+  connect: [ResourceWhereUniqueInput!]
+}
+
+input ResourceCreateNestedManyWithoutReportsInput {
+  connect: [ResourceWhereUniqueInput!]
+}
+
+input ResourceCreateNestedManyWithoutSupervisorsInput {
+  connect: [ResourceWhereUniqueInput!]
+}
+
+input ResourceListRelationFilter {
+  every: ResourceWhereInput
+  none: ResourceWhereInput
+  some: ResourceWhereInput
+}
+
+input ResourceOrderByInput {
+  AdminId: SortOrder
+  allocationId: SortOrder
+  createdAt: SortOrder
+  deletedAt: SortOrder
+  id: SortOrder
+  name: SortOrder
+  price: SortOrder
+  quantity: SortOrder
+  reportId: SortOrder
+  supervisorsId: SortOrder
+  updatedAt: SortOrder
+}
+
+input ResourceUpdateInput {
+  admin: AdminWhereUniqueInput
+  allocation: RepairWhereUniqueInput
+  deletedAt: DateTime
+  name: String
+  price: Float
+  quantity: Float
+  report: ReportWhereUniqueInput
+  supervisors: SupervisorWhereUniqueInput
+}
+
+input ResourceUpdateManyWithoutAdminsInput {
+  connect: [ResourceWhereUniqueInput!]
+  disconnect: [ResourceWhereUniqueInput!]
+  set: [ResourceWhereUniqueInput!]
+}
+
+input ResourceUpdateManyWithoutRepairsInput {
+  connect: [ResourceWhereUniqueInput!]
+  disconnect: [ResourceWhereUniqueInput!]
+  set: [ResourceWhereUniqueInput!]
+}
+
+input ResourceUpdateManyWithoutReportsInput {
+  connect: [ResourceWhereUniqueInput!]
+  disconnect: [ResourceWhereUniqueInput!]
+  set: [ResourceWhereUniqueInput!]
+}
+
+input ResourceUpdateManyWithoutSupervisorsInput {
+  connect: [ResourceWhereUniqueInput!]
+  disconnect: [ResourceWhereUniqueInput!]
+  set: [ResourceWhereUniqueInput!]
+}
+
+input ResourceWhereInput {
+  admin: AdminWhereUniqueInput
+  allocation: RepairWhereUniqueInput
+  createdAt: DateTimeFilter
+  deletedAt: DateTimeNullableFilter
+  id: StringFilter
+  name: StringFilter
+  price: IntFilter
+  quantity: IntFilter
+  report: ReportWhereUniqueInput
+  supervisors: SupervisorWhereUniqueInput
+  updatedAt: DateTimeFilter
+}
+
+input ResourceWhereUniqueInput {
+  id: String!
+}
+
+enum SortOrder {
+  Asc
+  Desc
+}
+
+input StringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: String
+  notIn: [String!]
+  startsWith: String
+}
+
+input StringNullableFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: String
+  notIn: [String!]
+  startsWith: String
+}
+
+type Supervisor {
+  admin: Admin
+  area: Area
+  createdAt: DateTime!
+  deletedAt: DateTime
+  id: String!
+  repairSchedule: RepairSchedule
+  repairs(orderBy: [RepairOrderByInput!], skip: Float, take: Float, where: RepairWhereInput): [Repair!]!
+  resources(orderBy: [ResourceOrderByInput!], skip: Float, take: Float, where: ResourceWhereInput): [Resource!]!
+  updatedAt: DateTime!
+  user: User
+}
+
+input SupervisorCreateInput {
+  admin: AdminWhereUniqueInput
+  area: AreaWhereUniqueInput!
+  deletedAt: DateTime
+  repairSchedule: RepairScheduleWhereUniqueInput
+  repairs: RepairCreateNestedManyWithoutSupervisorsInput
+  resources: ResourceCreateNestedManyWithoutSupervisorsInput
+  user: UserWhereUniqueInput!
+}
+
+input SupervisorCreateNestedManyWithoutAdminsInput {
+  connect: [SupervisorWhereUniqueInput!]
+}
+
+input SupervisorCreateNestedManyWithoutAreasInput {
+  connect: [SupervisorWhereUniqueInput!]
+}
+
+input SupervisorCreateNestedManyWithoutRepairSchedulesInput {
+  connect: [SupervisorWhereUniqueInput!]
+}
+
+input SupervisorListRelationFilter {
+  every: SupervisorWhereInput
+  none: SupervisorWhereInput
+  some: SupervisorWhereInput
+}
+
+input SupervisorOrderByInput {
+  AdminId: SortOrder
+  areaId: SortOrder
+  createdAt: SortOrder
+  deletedAt: SortOrder
+  id: SortOrder
+  repairScheduleId: SortOrder
+  updatedAt: SortOrder
+  userId: SortOrder
+}
+
+input SupervisorUpdateInput {
+  admin: AdminWhereUniqueInput
+  area: AreaWhereUniqueInput
+  deletedAt: DateTime
+  repairSchedule: RepairScheduleWhereUniqueInput
+  repairs: RepairUpdateManyWithoutSupervisorsInput
+  resources: ResourceUpdateManyWithoutSupervisorsInput
+  user: UserWhereUniqueInput
+}
+
+input SupervisorUpdateManyWithoutAdminsInput {
+  connect: [SupervisorWhereUniqueInput!]
+  disconnect: [SupervisorWhereUniqueInput!]
+  set: [SupervisorWhereUniqueInput!]
+}
+
+input SupervisorUpdateManyWithoutAreasInput {
+  connect: [SupervisorWhereUniqueInput!]
+  disconnect: [SupervisorWhereUniqueInput!]
+  set: [SupervisorWhereUniqueInput!]
+}
+
+input SupervisorUpdateManyWithoutRepairSchedulesInput {
+  connect: [SupervisorWhereUniqueInput!]
+  disconnect: [SupervisorWhereUniqueInput!]
+  set: [SupervisorWhereUniqueInput!]
+}
+
+input SupervisorWhereInput {
+  admin: AdminWhereUniqueInput
+  area: AreaWhereUniqueInput
+  createdAt: DateTimeFilter
+  deletedAt: DateTimeNullableFilter
+  id: StringFilter
+  repairSchedule: RepairScheduleWhereUniqueInput
+  repairs: RepairListRelationFilter
+  resources: ResourceListRelationFilter
+  updatedAt: DateTimeFilter
+  user: UserWhereUniqueInput
+}
+
+input SupervisorWhereUniqueInput {
+  id: String!
+}
+
+type Update {
+  complaints(orderBy: [ComplaintOrderByInput!], skip: Float, take: Float, where: ComplaintWhereInput): [Complaint!]!
+  createdAt: DateTime!
+  deletedAt: DateTime
+  id: String!
+  report: Report
+  residents: Resident
+  time: DateTime!
+  updatedAt: DateTime!
+}
+
+input UpdateCreateInput {
+  complaints: ComplaintCreateNestedManyWithoutUpdatesInput
+  deletedAt: DateTime
+  report: ReportWhereUniqueInput!
+  residents: ResidentWhereUniqueInput
+  time: DateTime!
+}
+
+input UpdateCreateNestedManyWithoutReportsInput {
+  connect: [UpdateWhereUniqueInput!]
+}
+
+input UpdateCreateNestedManyWithoutResidentsInput {
+  connect: [UpdateWhereUniqueInput!]
+}
+
+input UpdateListRelationFilter {
+  every: UpdateWhereInput
+  none: UpdateWhereInput
+  some: UpdateWhereInput
+}
+
+input UpdateOrderByInput {
+  createdAt: SortOrder
+  deletedAt: SortOrder
+  id: SortOrder
+  reportId: SortOrder
+  residentsId: SortOrder
+  time: SortOrder
+  updatedAt: SortOrder
+}
+
+input UpdateUpdateInput {
+  complaints: ComplaintUpdateManyWithoutUpdatesInput
+  deletedAt: DateTime
+  report: ReportWhereUniqueInput
+  residents: ResidentWhereUniqueInput
+  time: DateTime
+}
+
+input UpdateUpdateManyWithoutReportsInput {
+  connect: [UpdateWhereUniqueInput!]
+  disconnect: [UpdateWhereUniqueInput!]
+  set: [UpdateWhereUniqueInput!]
+}
+
+input UpdateUpdateManyWithoutResidentsInput {
+  connect: [UpdateWhereUniqueInput!]
+  disconnect: [UpdateWhereUniqueInput!]
+  set: [UpdateWhereUniqueInput!]
+}
+
+input UpdateWhereInput {
+  complaints: ComplaintListRelationFilter
+  createdAt: DateTimeFilter
+  deletedAt: DateTimeNullableFilter
+  id: StringFilter
+  report: ReportWhereUniqueInput
+  residents: ResidentWhereUniqueInput
+  time: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
+input UpdateWhereUniqueInput {
+  id: String!
+}
+
+type User {
+  admin: Admin
+  age: Float!
+  complaint(orderBy: [ComplaintOrderByInput!], skip: Float, take: Float, where: ComplaintWhereInput): [Complaint!]!
+  createdAt: DateTime!
+  deletedAt: DateTime
+  id: String!
+  mayor: Mayor
+  name: String!
+  phone: String
+  repair(orderBy: [RepairOrderByInput!], skip: Float, take: Float, where: RepairWhereInput): [Repair!]!
+  residents: Resident
+  roles: JSON
+  supervisors: Supervisor
+  updatedAt: DateTime!
+  username: String!
+}
+
+input UserCreateInput {
+  admin: AdminWhereUniqueInput
+  age: Float!
+  complaint: ComplaintCreateNestedManyWithoutUsersInput
+  deletedAt: DateTime
+  mayor: MayorWhereUniqueInput
+  name: String!
+  password: String!
+  phone: String
+  repair: RepairCreateNestedManyWithoutUsersInput
+  residents: ResidentWhereUniqueInput
+  roles: JSON
+  supervisors: SupervisorWhereUniqueInput
+  username: String!
+}
+
+type UserInfo {
+  accessToken: String
+  id: String!
+  roles: [String!]!
+  username: String!
+}
+
+input UserOrderByInput {
+  adminId: SortOrder
+  age: SortOrder
+  createdAt: SortOrder
+  deletedAt: SortOrder
+  id: SortOrder
+  mayorId: SortOrder
+  name: SortOrder
+  password: SortOrder
+  phone: SortOrder
+  residentsId: SortOrder
+  roles: SortOrder
+  supervisorsId: SortOrder
+  updatedAt: SortOrder
+  username: SortOrder
+}
+
+input UserUpdateInput {
+  admin: AdminWhereUniqueInput
+  age: Float
+  complaint: ComplaintUpdateManyWithoutUsersInput
+  deletedAt: DateTime
+  mayor: MayorWhereUniqueInput
+  name: String
+  password: String
+  phone: String
+  repair: RepairUpdateManyWithoutUsersInput
+  residents: ResidentWhereUniqueInput
+  roles: JSON
+  supervisors: SupervisorWhereUniqueInput
+  username: String
+}
+
+input UserWhereInput {
+  admin: AdminWhereUniqueInput
+  age: IntFilter
+  complaint: ComplaintListRelationFilter
+  createdAt: DateTimeFilter
+  deletedAt: DateTimeNullableFilter
+  id: StringFilter
+  mayor: MayorWhereUniqueInput
+  name: StringFilter
+  phone: StringNullableFilter
+  repair: RepairListRelationFilter
+  residents: ResidentWhereUniqueInput
+  supervisors: SupervisorWhereUniqueInput
+  updatedAt: DateTimeFilter
+  username: StringFilter
+}
+
+input UserWhereUniqueInput {
+  id: String!
+}

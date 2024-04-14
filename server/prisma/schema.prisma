@@ -1,0 +1,228 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id          String      @id @default(cuid())
+  name        String
+  username    String      @unique
+  age         Int
+  phone       String?
+  password    String
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  deletedAt   DateTime?
+  residents   Resident?
+  supervisors Supervisor?
+  admin       Admin?
+  mayor       Mayor?
+  complaint   Complaint[]
+  repair      Repair[]
+  roles       Json
+}
+
+model Resident {
+  id         String      @id @default(cuid())
+  area       Area        @relation(fields: [areaId], references: [id])
+  areaId     String
+  user       User        @relation(fields: [userId], references: [id])
+  userId     String      @unique
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+  deletedAt  DateTime?
+  complaints Complaint[]
+  updates    Update[]
+
+  @@map("Residents")
+}
+
+model Supervisor {
+  id               String          @id @default(cuid())
+  area             Area            @relation(fields: [areaId], references: [id])
+  areaId           String
+  repairSchedule   RepairSchedule? @relation(fields: [repairScheduleId], references: [id])
+  repairScheduleId String?
+  user             User            @relation(fields: [userId], references: [id])
+  userId           String          @unique
+  admin            Admin?          @relation(fields: [AdminId], references: [id])
+  AdminId          String?
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+  deletedAt        DateTime?
+  repairs          Repair[]
+  resources        Resource[]
+
+  @@map("Supervisors")
+}
+
+model Admin {
+  id              String           @id @default(cuid())
+  mayor           Mayor            @relation(fields: [mayorId], references: [id])
+  mayorId         String
+  user            User             @relation(fields: [userId], references: [id])
+  userId          String           @unique
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  deletedAt       DateTime?
+  supervisors     Supervisor[]
+  resources       Resource[]
+  repairSchedules RepairSchedule[]
+}
+
+model Mayor {
+  id        String    @id @default(cuid())
+  city      String
+  user      User      @relation(fields: [userId], references: [id])
+  userId    String    @unique
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  admin     Admin[]
+  reports   Report[]
+}
+
+model Complaint {
+  id           String                @id @default(cuid())
+  road         String
+  description  String
+  subscription Boolean
+  area         Area                  @relation(fields: [areaId], references: [id])
+  areaId       String
+  user         User                  @relation(fields: [userId], references: [id])
+  userId       String
+  severity     EnumComplaintSeverity
+  status       EnumComplaintStatus
+  residents    Resident?             @relation(fields: [residentsId], references: [id])
+  residentsId  String?
+  repair       Repair?               @relation(fields: [repairId], references: [id])
+  repairId     String?
+  report       Report?               @relation(fields: [reportId], references: [id])
+  reportId     String?
+  update       Update?               @relation(fields: [updateId], references: [id])
+  updateId     String?
+  createdAt    DateTime              @default(now())
+  updatedAt    DateTime              @updatedAt
+  deletedAt    DateTime?
+}
+
+model Area {
+  id          String       @id @default(cuid())
+  name        String
+  address     String
+  region      String
+  country     String
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  deletedAt   DateTime?
+  residents   Resident[]
+  supervisors Supervisor[]
+  complaint   Complaint[]
+  repair      Repair[]
+}
+
+model Repair {
+  id               String             @id @default(cuid())
+  status           EnumRepairStatus
+  priority         EnumRepairPriority
+  assignedTo       User               @relation(fields: [assignedToId], references: [id])
+  assignedToId     String
+  area             Area               @relation(fields: [areaId], references: [id])
+  areaId           String
+  supervisors      Supervisor?        @relation(fields: [supervisorsId], references: [id])
+  supervisorsId    String?
+  repairSchedule   RepairSchedule?    @relation(fields: [repairScheduleId], references: [id])
+  repairScheduleId String?
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+  deletedAt        DateTime?
+  complaints       Complaint[]
+  resources        Resource[]
+}
+
+model Resource {
+  id            String      @id @default(cuid())
+  name          String
+  quantity      Int
+  allocation    Repair      @relation(fields: [allocationId], references: [id])
+  allocationId  String
+  price         Int
+  supervisors   Supervisor? @relation(fields: [supervisorsId], references: [id])
+  supervisorsId String?
+  admin         Admin?      @relation(fields: [AdminId], references: [id])
+  AdminId       String?
+  report        Report?     @relation(fields: [reportId], references: [id])
+  reportId      String?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  deletedAt     DateTime?
+}
+
+model RepairSchedule {
+  id          String       @id @default(cuid())
+  time        DateTime
+  admin       Admin?       @relation(fields: [AdminId], references: [id])
+  AdminId     String?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  deletedAt   DateTime?
+  supervisors Supervisor[]
+  repairs     Repair[]
+  report      Report[]
+}
+
+model Report {
+  id               String         @id @default(cuid())
+  time             DateTime
+  repairSchedule   RepairSchedule @relation(fields: [repairScheduleId], references: [id])
+  repairScheduleId String
+  mayor            Mayor?         @relation(fields: [mayorId], references: [id])
+  mayorId          String?
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+  deletedAt        DateTime?
+  complaints       Complaint[]
+  resources        Resource[]
+  update           Update[]
+}
+
+model Update {
+  id          String      @id @default(cuid())
+  time        DateTime
+  report      Report      @relation(fields: [reportId], references: [id])
+  reportId    String
+  residents   Resident?   @relation(fields: [residentsId], references: [id])
+  residentsId String?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  deletedAt   DateTime?
+  complaints  Complaint[]
+}
+
+enum EnumComplaintSeverity {
+  Low
+  Medium
+  High
+}
+
+enum EnumComplaintStatus {
+  Pending
+  InProgress
+  Completed
+}
+
+enum EnumRepairStatus {
+  Pending
+  InProgress
+  Completed
+}
+
+enum EnumRepairPriority {
+  Low
+  Medium
+  High
+}
