@@ -22,6 +22,9 @@ importers:
       graphql:
         specifier: 15.6.1
         version: 15.6.1
+      history:
+        specifier: 4.10.1
+        version: 4.10.1
       lodash:
         specifier: 4.17.21
         version: 4.17.21
@@ -40,6 +43,9 @@ importers:
       react-dom:
         specifier: 16.14.0
         version: 16.14.0(react@16.14.0)
+      react-router-dom:
+        specifier: 5.1.0
+        version: 5.1.0(react@16.14.0)
       react-scripts:
         specifier: 5.0.0
         version: 5.0.0(@babel/plugin-syntax-flow@7.23.3)(@babel/plugin-transform-react-jsx@7.23.4)(eslint@8.57.0)(react@16.14.0)(sass@1.71.1)(type-fest@0.13.1)(typescript@4.3.5)
@@ -59,6 +65,9 @@ importers:
       '@testing-library/user-event':
         specifier: 13.2.0
         version: 13.2.0(@testing-library/dom@9.3.4)
+      '@types/history':
+        specifier: ^5.0.0
+        version: 5.0.0
       '@types/jest':
         specifier: 26.0.16
         version: 26.0.16
@@ -3893,6 +3902,13 @@ packages:
     resolution: {integrity: sha512-xT+yYxASVuIgs3262jTQNfEwLvFkgh/5gBjz3EWYgPCA8HWS8iVfnWNiVsOFzvRLYbWGdKQPl8eB3LiYLLtkfA==}
     dependencies:
       graphql: 14.7.0
+    dev: true
+
+  /@types/history@5.0.0:
+    resolution: {integrity: sha512-hy8b7Y1J8OGe6LbAjj3xniQrj3v6lsivCcrmf4TzSgPzLkhIeKgc5IZnT7ReIqmEuodjfO8EYAuoFvIrHi/+jQ==}
+    deprecated: This is a stub types definition. history provides its own type definitions, so you do not need this installed.
+    dependencies:
+      history: 4.10.1
     dev: true
 
   /@types/hoist-non-react-statics@3.3.5:
@@ -7865,7 +7881,6 @@ packages:
       tiny-invariant: 1.3.3
       tiny-warning: 1.0.3
       value-equal: 1.0.1
-    dev: false
 
   /hoist-non-react-statics@3.3.2:
     resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
@@ -10104,6 +10119,19 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
+  /mini-create-react-context@0.3.3(prop-types@15.8.1)(react@16.14.0):
+    resolution: {integrity: sha512-TtF6hZE59SGmS4U8529qB+jJFeW6asTLDIpPgvPLSCsooAwJS7QprHIFTqv9/Qh3NdLwQxFYgiHX5lqb6jqzPA==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+    peerDependencies:
+      prop-types: ^15.0.0
+      react: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+    dependencies:
+      '@babel/runtime': 7.24.0
+      prop-types: 15.8.1
+      react: 16.14.0
+      tiny-warning: 1.0.3
+    dev: false
+
   /mini-css-extract-plugin@2.8.1(webpack@5.90.3):
     resolution: {integrity: sha512-/1HDlyFRxWIZPI1ZpgqlZ8jMw/1Dp/dl3P0L1jtZ+zVcHqwPhGwaJwKL00WVgfnBy6PWCde9W65or7IIETImuA==}
     engines: {node: '>= 12.13.0'}
@@ -11756,7 +11784,7 @@ packages:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
     dev: false
 
-  /ra-core@3.19.12(connected-react-router@6.9.3)(final-form@4.20.10)(history@4.10.1)(react-dom@16.14.0)(react-final-form@6.5.9)(react-redux@7.2.9)(react-router-dom@5.3.4)(react-router@5.3.4)(react@16.14.0)(redux-saga@1.3.0)(redux@4.2.1):
+  /ra-core@3.19.12(connected-react-router@6.9.3)(final-form@4.20.10)(history@4.10.1)(react-dom@16.14.0)(react-final-form@6.5.9)(react-redux@7.2.9)(react-router-dom@5.1.0)(react-router@5.3.4)(react@16.14.0)(redux-saga@1.3.0)(redux@4.2.1):
     resolution: {integrity: sha512-E0cM6OjEUtccaR+dR5mL1MLiVVYML0Yf7aPhpLEq4iue73X3+CKcLztInoBhWgeevPbFQwgAtsXhlpedeyrNNg==}
     peerDependencies:
       connected-react-router: ^6.5.2
@@ -11786,7 +11814,7 @@ packages:
       react-final-form: 6.5.9(final-form@4.20.10)(react@16.14.0)
       react-redux: 7.2.9(react-dom@16.14.0)(react@16.14.0)
       react-router: 5.3.4(react@16.14.0)
-      react-router-dom: 5.3.4(react@16.14.0)
+      react-router-dom: 5.1.0(react@16.14.0)
       redux: 4.2.1
       redux-saga: 1.3.0
       reselect: 3.0.1
@@ -11803,7 +11831,7 @@ packages:
       graphql-ast-types-browser: 1.0.2(graphql@15.6.1)
       lodash: 4.17.21
       pluralize: 8.0.0
-      ra-core: 3.19.12(connected-react-router@6.9.3)(final-form@4.20.10)(history@4.10.1)(react-dom@16.14.0)(react-final-form@6.5.9)(react-redux@7.2.9)(react-router-dom@5.3.4)(react-router@5.3.4)(react@16.14.0)(redux-saga@1.3.0)(redux@4.2.1)
+      ra-core: 3.19.12(connected-react-router@6.9.3)(final-form@4.20.10)(history@4.10.1)(react-dom@16.14.0)(react-final-form@6.5.9)(react-redux@7.2.9)(react-router-dom@5.1.0)(react-router@5.3.4)(react@16.14.0)(redux-saga@1.3.0)(redux@4.2.1)
       ra-data-graphql: 3.19.10(graphql@15.6.1)(ra-core@3.19.12)(react@16.14.0)
     transitivePeerDependencies:
       - graphql-ws
@@ -11821,18 +11849,18 @@ packages:
       graphql: 15.6.1
       lodash: 4.17.21
       pluralize: 7.0.0
-      ra-core: 3.19.12(connected-react-router@6.9.3)(final-form@4.20.10)(history@4.10.1)(react-dom@16.14.0)(react-final-form@6.5.9)(react-redux@7.2.9)(react-router-dom@5.3.4)(react-router@5.3.4)(react@16.14.0)(redux-saga@1.3.0)(redux@4.2.1)
+      ra-core: 3.19.12(connected-react-router@6.9.3)(final-form@4.20.10)(history@4.10.1)(react-dom@16.14.0)(react-final-form@6.5.9)(react-redux@7.2.9)(react-router-dom@5.1.0)(react-router@5.3.4)(react@16.14.0)(redux-saga@1.3.0)(redux@4.2.1)
     transitivePeerDependencies:
       - graphql-ws
       - react
       - subscriptions-transport-ws
     dev: false
 
-  /ra-i18n-polyglot@3.19.12(connected-react-router@6.9.3)(final-form@4.20.10)(history@4.10.1)(react-dom@16.14.0)(react-final-form@6.5.9)(react-redux@7.2.9)(react-router-dom@5.3.4)(react-router@5.3.4)(react@16.14.0)(redux-saga@1.3.0)(redux@4.2.1):
+  /ra-i18n-polyglot@3.19.12(connected-react-router@6.9.3)(final-form@4.20.10)(history@4.10.1)(react-dom@16.14.0)(react-final-form@6.5.9)(react-redux@7.2.9)(react-router-dom@5.1.0)(react-router@5.3.4)(react@16.14.0)(redux-saga@1.3.0)(redux@4.2.1):
     resolution: {integrity: sha512-7VkNybY+RYVL5aDf8MdefYpRMkaELOjSXx7rrRY7PzVwmQzVe5ESoKBcH4Cob2M8a52pAlXY32dwmA3dZ91l/Q==}
     dependencies:
       node-polyglot: 2.5.0
-      ra-core: 3.19.12(connected-react-router@6.9.3)(final-form@4.20.10)(history@4.10.1)(react-dom@16.14.0)(react-final-form@6.5.9)(react-redux@7.2.9)(react-router-dom@5.3.4)(react-router@5.3.4)(react@16.14.0)(redux-saga@1.3.0)(redux@4.2.1)
+      ra-core: 3.19.12(connected-react-router@6.9.3)(final-form@4.20.10)(history@4.10.1)(react-dom@16.14.0)(react-final-form@6.5.9)(react-redux@7.2.9)(react-router-dom@5.1.0)(react-router@5.3.4)(react@16.14.0)(redux-saga@1.3.0)(redux@4.2.1)
     transitivePeerDependencies:
       - connected-react-router
       - final-form
@@ -11847,10 +11875,10 @@ packages:
       - redux-saga
     dev: false
 
-  /ra-language-english@3.19.12(connected-react-router@6.9.3)(final-form@4.20.10)(history@4.10.1)(react-dom@16.14.0)(react-final-form@6.5.9)(react-redux@7.2.9)(react-router-dom@5.3.4)(react-router@5.3.4)(react@16.14.0)(redux-saga@1.3.0)(redux@4.2.1):
+  /ra-language-english@3.19.12(connected-react-router@6.9.3)(final-form@4.20.10)(history@4.10.1)(react-dom@16.14.0)(react-final-form@6.5.9)(react-redux@7.2.9)(react-router-dom@5.1.0)(react-router@5.3.4)(react@16.14.0)(redux-saga@1.3.0)(redux@4.2.1):
     resolution: {integrity: sha512-aYY0ma74eXLuflPT9iXEQtVEDZxebw1NiQZ5pPGiBCpsq+hoiDWuzerLU13OdBHbySD5FHLuk89SkyAdfMtUaQ==}
     dependencies:
-      ra-core: 3.19.12(connected-react-router@6.9.3)(final-form@4.20.10)(history@4.10.1)(react-dom@16.14.0)(react-final-form@6.5.9)(react-redux@7.2.9)(react-router-dom@5.3.4)(react-router@5.3.4)(react@16.14.0)(redux-saga@1.3.0)(redux@4.2.1)
+      ra-core: 3.19.12(connected-react-router@6.9.3)(final-form@4.20.10)(history@4.10.1)(react-dom@16.14.0)(react-final-form@6.5.9)(react-redux@7.2.9)(react-router-dom@5.1.0)(react-router@5.3.4)(react@16.14.0)(redux-saga@1.3.0)(redux@4.2.1)
     transitivePeerDependencies:
       - connected-react-router
       - final-form
@@ -11865,7 +11893,7 @@ packages:
       - redux-saga
     dev: false
 
-  /ra-ui-materialui@3.19.12(@material-ui/core@4.12.4)(@material-ui/icons@4.11.3)(@material-ui/styles@4.11.5)(final-form-arrays@3.1.0)(final-form@4.20.10)(history@4.10.1)(ra-core@3.19.12)(react-dom@16.14.0)(react-final-form-arrays@3.1.4)(react-final-form@6.5.9)(react-redux@7.2.9)(react-router-dom@5.3.4)(react-router@5.3.4)(react@16.14.0)(redux@4.2.1):
+  /ra-ui-materialui@3.19.12(@material-ui/core@4.12.4)(@material-ui/icons@4.11.3)(@material-ui/styles@4.11.5)(final-form-arrays@3.1.0)(final-form@4.20.10)(history@4.10.1)(ra-core@3.19.12)(react-dom@16.14.0)(react-final-form-arrays@3.1.4)(react-final-form@6.5.9)(react-redux@7.2.9)(react-router-dom@5.1.0)(react-router@5.3.4)(react@16.14.0)(redux@4.2.1):
     resolution: {integrity: sha512-8Zz88r5yprmUxOw9/F0A/kjjVmFMb2n+sjpel8fuOWtS6y++JWonDsvTwo4yIuSF9mC0fht3f/hd2KEHQdmj6Q==}
     peerDependencies:
       '@material-ui/core': ^4.12.1
@@ -11899,7 +11927,7 @@ packages:
       lodash: 4.17.21
       prop-types: 15.8.1
       query-string: 5.1.1
-      ra-core: 3.19.12(connected-react-router@6.9.3)(final-form@4.20.10)(history@4.10.1)(react-dom@16.14.0)(react-final-form@6.5.9)(react-redux@7.2.9)(react-router-dom@5.3.4)(react-router@5.3.4)(react@16.14.0)(redux-saga@1.3.0)(redux@4.2.1)
+      ra-core: 3.19.12(connected-react-router@6.9.3)(final-form@4.20.10)(history@4.10.1)(react-dom@16.14.0)(react-final-form@6.5.9)(react-redux@7.2.9)(react-router-dom@5.1.0)(react-router@5.3.4)(react@16.14.0)(redux-saga@1.3.0)(redux@4.2.1)
       react: 16.14.0
       react-dom: 16.14.0(react@16.14.0)
       react-dropzone: 10.2.2(react@16.14.0)
@@ -11907,7 +11935,7 @@ packages:
       react-final-form-arrays: 3.1.4(final-form-arrays@3.1.0)(final-form@4.20.10)(react-final-form@6.5.9)(react@16.14.0)
       react-redux: 7.2.9(react-dom@16.14.0)(react@16.14.0)
       react-router: 5.3.4(react@16.14.0)
-      react-router-dom: 5.3.4(react@16.14.0)
+      react-router-dom: 5.1.0(react@16.14.0)
       react-transition-group: 4.4.5(react-dom@16.14.0)(react@16.14.0)
       redux: 4.2.1
     transitivePeerDependencies:
@@ -11959,17 +11987,17 @@ packages:
       connected-react-router: 6.9.3(history@4.10.1)(react-redux@7.2.9)(react-router@5.3.4)(react@16.14.0)(redux@4.2.1)
       final-form: 4.20.10
       final-form-arrays: 3.1.0(final-form@4.20.10)
-      ra-core: 3.19.12(connected-react-router@6.9.3)(final-form@4.20.10)(history@4.10.1)(react-dom@16.14.0)(react-final-form@6.5.9)(react-redux@7.2.9)(react-router-dom@5.3.4)(react-router@5.3.4)(react@16.14.0)(redux-saga@1.3.0)(redux@4.2.1)
-      ra-i18n-polyglot: 3.19.12(connected-react-router@6.9.3)(final-form@4.20.10)(history@4.10.1)(react-dom@16.14.0)(react-final-form@6.5.9)(react-redux@7.2.9)(react-router-dom@5.3.4)(react-router@5.3.4)(react@16.14.0)(redux-saga@1.3.0)(redux@4.2.1)
-      ra-language-english: 3.19.12(connected-react-router@6.9.3)(final-form@4.20.10)(history@4.10.1)(react-dom@16.14.0)(react-final-form@6.5.9)(react-redux@7.2.9)(react-router-dom@5.3.4)(react-router@5.3.4)(react@16.14.0)(redux-saga@1.3.0)(redux@4.2.1)
-      ra-ui-materialui: 3.19.12(@material-ui/core@4.12.4)(@material-ui/icons@4.11.3)(@material-ui/styles@4.11.5)(final-form-arrays@3.1.0)(final-form@4.20.10)(history@4.10.1)(ra-core@3.19.12)(react-dom@16.14.0)(react-final-form-arrays@3.1.4)(react-final-form@6.5.9)(react-redux@7.2.9)(react-router-dom@5.3.4)(react-router@5.3.4)(react@16.14.0)(redux@4.2.1)
+      ra-core: 3.19.12(connected-react-router@6.9.3)(final-form@4.20.10)(history@4.10.1)(react-dom@16.14.0)(react-final-form@6.5.9)(react-redux@7.2.9)(react-router-dom@5.1.0)(react-router@5.3.4)(react@16.14.0)(redux-saga@1.3.0)(redux@4.2.1)
+      ra-i18n-polyglot: 3.19.12(connected-react-router@6.9.3)(final-form@4.20.10)(history@4.10.1)(react-dom@16.14.0)(react-final-form@6.5.9)(react-redux@7.2.9)(react-router-dom@5.1.0)(react-router@5.3.4)(react@16.14.0)(redux-saga@1.3.0)(redux@4.2.1)
+      ra-language-english: 3.19.12(connected-react-router@6.9.3)(final-form@4.20.10)(history@4.10.1)(react-dom@16.14.0)(react-final-form@6.5.9)(react-redux@7.2.9)(react-router-dom@5.1.0)(react-router@5.3.4)(react@16.14.0)(redux-saga@1.3.0)(redux@4.2.1)
+      ra-ui-materialui: 3.19.12(@material-ui/core@4.12.4)(@material-ui/icons@4.11.3)(@material-ui/styles@4.11.5)(final-form-arrays@3.1.0)(final-form@4.20.10)(history@4.10.1)(ra-core@3.19.12)(react-dom@16.14.0)(react-final-form-arrays@3.1.4)(react-final-form@6.5.9)(react-redux@7.2.9)(react-router-dom@5.1.0)(react-router@5.3.4)(react@16.14.0)(redux@4.2.1)
       react: 16.14.0
       react-dom: 16.14.0(react@16.14.0)
       react-final-form: 6.5.9(final-form@4.20.10)(react@16.14.0)
       react-final-form-arrays: 3.1.4(final-form-arrays@3.1.0)(final-form@4.20.10)(react-final-form@6.5.9)(react@16.14.0)
       react-redux: 7.2.9(react-dom@16.14.0)(react@16.14.0)
       react-router: 5.3.4(react@16.14.0)
-      react-router-dom: 5.3.4(react@16.14.0)
+      react-router-dom: 5.1.0(react@16.14.0)
       redux: 4.2.1
       redux-saga: 1.3.0
     transitivePeerDependencies:
@@ -12121,8 +12149,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /react-router-dom@5.3.4(react@16.14.0):
-    resolution: {integrity: sha512-m4EqFMHv/Ih4kpcBCONHbkT68KoAeHN4p3lAGoNryfHi0dMy0kCzEZakiKRsvg5wHZ/JLrLW8o8KomWiz/qbYQ==}
+  /react-router-dom@5.1.0(react@16.14.0):
+    resolution: {integrity: sha512-OkxKbMKjO7IkYqnoaZNX19MnwgjhxwZE871cPUTq0YU2wpIw7QwGxSnSoNRMOa7wO1TwvJJMFpgiEB4C/gVhTw==}
     peerDependencies:
       react: '>=15'
     dependencies:
@@ -12131,7 +12159,25 @@ packages:
       loose-envify: 1.4.0
       prop-types: 15.8.1
       react: 16.14.0
-      react-router: 5.3.4(react@16.14.0)
+      react-router: 5.1.0(react@16.14.0)
+      tiny-invariant: 1.3.3
+      tiny-warning: 1.0.3
+    dev: false
+
+  /react-router@5.1.0(react@16.14.0):
+    resolution: {integrity: sha512-n9HXxaL/6yRlig9XPfGyagI8+bUNdqcu7FUAx0/Z+Us22Z8iHsbkyJ21Inebn9HOxI5Nxlfc8GNabkNSeXfhqw==}
+    peerDependencies:
+      react: '>=15'
+    dependencies:
+      '@babel/runtime': 7.24.0
+      history: 4.10.1
+      hoist-non-react-statics: 3.3.2
+      loose-envify: 1.4.0
+      mini-create-react-context: 0.3.3(prop-types@15.8.1)(react@16.14.0)
+      path-to-regexp: 1.8.0
+      prop-types: 15.8.1
+      react: 16.14.0
+      react-is: 16.13.1
       tiny-invariant: 1.3.3
       tiny-warning: 1.0.3
     dev: false
@@ -12475,7 +12521,6 @@ packages:
 
   /resolve-pathname@3.0.0:
     resolution: {integrity: sha512-C7rARubxI8bXFNB/hqcp/4iUeIXJhJZvFPFPiSPRnhU5UPxzMFIl+2E6yY6c4k9giDJAhtV+enfA+G89N6Csng==}
-    dev: false
 
   /resolve-url-loader@4.0.0:
     resolution: {integrity: sha512-05VEMczVREcbtT7Bz+C+96eUO5HDNvdthIiMB34t7FcF8ehcu4wC0sSgPUubs3XW2Q3CNLJk/BJrCU9wVRymiA==}
@@ -13558,11 +13603,9 @@ packages:
 
   /tiny-invariant@1.3.3:
     resolution: {integrity: sha512-+FbBPE1o9QAYvviau/qC5SE3caw21q3xkvWKBtja5vgqOWIHHJ3ioaq1VPfn/Szqctz2bU/oYeKd9/z5BL+PVg==}
-    dev: false
 
   /tiny-warning@1.0.3:
     resolution: {integrity: sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA==}
-    dev: false
 
   /tmp@0.0.33:
     resolution: {integrity: sha512-jRCJlojKnZ3addtTOjdIqoRuPEKBvNXcGYqzO6zWZX8KfKEpnGY5jfggJQ3EjKuu8D4bJRr0y+cYJFmYbImXGw==}
@@ -14045,7 +14088,6 @@ packages:
 
   /value-equal@1.0.1:
     resolution: {integrity: sha512-NOJ6JZCAWr0zlxZt+xqCHNTEKOsrks2HQd4MqhP1qy4z1SkbEP467eNx6TgDKXMvUOb+OENfJCZwM+16n7fRfw==}
-    dev: false
 
   /value-or-promise@1.0.12:
     resolution: {integrity: sha512-Z6Uz+TYwEqE7ZN50gwn+1LCVo9ZVrpxRPOhOLnncYkY1ZzOYtrX8Fwf/rFktZ8R5mJms6EZf5TqNOMeZmnPq9Q==}
