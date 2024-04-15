@@ -1,59 +1,39 @@
-// .App {
-//   .MuiAppBar-colorSecondary {
-//     background-color: black;
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 12px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  z-index: 1000;
 
-//     .RaAppBar-menuButton-13 {
-//       background-color: yellow;
-//     }
-//   }
+  a {
+    color: white;
+  }
+}
 
-//   .MuiDrawer-paper {
-//     background-color: red;
+.footer .container {
+  display: flex;
+  align-items: center;
+}
 
-//     .MuiListItemIcon-root {
-//       color: white;
-//     }
-//   }
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
 
-//   .MuiButton-textPrimary {
-//     background-color: purple;
-//     margin: 0 0.5rem;
-//     color: white;
-//     padding: 0.5rem 1rem;
+.outro {
+  margin-right: 30px;
+}
 
-//     &:hover {
-//       background-color: blue;
-//     }
-//   }
+.text-muted {
+  color: #c7cdd3 !important;
+  margin: 0 auto;
 
-//   .MuiTableRow-head {
-//     .MuiTableCell-head {
-//       background-color: black;
-//       color: white;
-//     }
-
-//     .MuiTableSortLabel-root {
-//       &:hover {
-//         color: red;
-
-//         .MuiTableSortLabel-icon {
-//           color: red !important;
-//         }
-//       }
-//       .MuiTableSortLabel-icon {
-//         color: white !important;
-//       }
-//     }
-//     .MuiTableSortLabel-active {
-//       color: green;
-
-//       .MuiTableSortLabel-icon {
-//         color: green !important;
-//       }
-//     }
-//   }
-
-//   .MuiFormLabel-root {
-//     color: magenta;
-//   }
-// }
+  a {
+    color: #c7cdd3 !important;
+  }
+}

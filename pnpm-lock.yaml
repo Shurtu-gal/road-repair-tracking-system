@@ -43,6 +43,9 @@ importers:
       react-dom:
         specifier: 16.14.0
         version: 16.14.0(react@16.14.0)
+      react-icons:
+        specifier: ^5.1.0
+        version: 5.1.0(react@16.14.0)
       react-router-dom:
         specifier: 5.1.0
         version: 5.1.0(react@16.14.0)
@@ -12110,6 +12113,14 @@ packages:
     dependencies:
       '@babel/runtime': 7.24.0
       final-form: 4.20.10
+      react: 16.14.0
+    dev: false
+
+  /react-icons@5.1.0(react@16.14.0):
+    resolution: {integrity: sha512-D3zug1270S4hbSlIRJ0CUS97QE1yNNKDjzQe3HqY0aefp2CBn9VgzgES27sRR2gOvFK+0CNx/BW0ggOESp6fqQ==}
+    peerDependencies:
+      react: '*'
+    dependencies:
       react: 16.14.0
     dev: false
 

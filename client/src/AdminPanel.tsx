@@ -55,6 +55,7 @@ import { UpdateEdit } from "./update/UpdateEdit";
 import { UpdateShow } from "./update/UpdateShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 import { createBrowserHistory as createHistory } from 'history';
+import { FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa6"
 
 export const history = createHistory({
   basename: "/admin"
@@ -85,6 +86,7 @@ const AdminPanel = ({ routes }: {routes?: CustomRoutes}): React.ReactElement => 
         loginPage={Login}
         history={history}
         customRoutes={routes}
+        
       >
         <Resource
           name="User"
@@ -170,6 +172,32 @@ const AdminPanel = ({ routes }: {routes?: CustomRoutes}): React.ReactElement => 
           create={UpdateCreate}
           show={UpdateShow}
         />
+
+        {/* Custom Components */}
+
+        <footer className="footer">
+          <div className="container">
+            <div className="links">
+              <a href="https://github.com/Shurtu-gal" target="_blank">
+                <FaGithub />
+              </a>
+              <a href="https://twitter.com/Shurtu-Gal" target="_blank">
+                <FaTwitter />
+              </a>
+              <a href="https://www.linkedin.com/in/ashishpadhy-3023" target="_blank">
+                <FaLinkedin />
+              </a>
+            </div>
+            <span className="text-muted">
+              <a href="https://github.com/Shurtu-gal/road-repair-and-tracking-system#readme" target="_blank">Road Repair and Tracking System</a> &copy; 2024
+            </span>
+            <div className="outro">
+              <p>
+                Made with <span className="heart">💔</span> by Ashish Padhy
+              </p>
+            </div>
+          </div>
+        </footer>
       </Admin>
     </div>
   );
