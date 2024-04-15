@@ -33,7 +33,7 @@ const Login = ({ theme }: any) => {
               src={graphql}
               alt="GraphQL API"
             />
-            <h2>Connect via GraphQL</h2>
+            <h2>Try the backend via GraphQL</h2>
             <div className={`${CLASS_NAME}__box__message`}>
               Connect to the server using GraphQL API with a complete and
               understandable description of the data in your API
@@ -87,7 +87,7 @@ const Login = ({ theme }: any) => {
               src={rest}
               alt="REST API"
             />
-            <h2>Connect via REST API</h2>
+            <h2>Try out the REST API</h2>
             <div className={`${CLASS_NAME}__box__message`}>
               Connect to the server using REST API with a built-in Swagger
               documentation
