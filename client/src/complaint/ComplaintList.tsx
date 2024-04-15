@@ -8,6 +8,8 @@ import {
   BooleanField,
   ReferenceField,
   DateField,
+  EditButton,
+  ShowButton,
 } from "react-admin";
 
 import Pagination from "../Components/Pagination";
@@ -59,6 +61,8 @@ export const ComplaintList = (props: ListProps): React.ReactElement => {
         <DateField source="createdAt" label="Created At" />
         <DateField source="updatedAt" label="Updated At" />
         <TextField label="Deleted At" source="deletedAt" />
+        <EditButton />
+        <ShowButton />
       </Datagrid>
     </List>
   );

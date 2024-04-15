@@ -62,7 +62,8 @@ export const jwtAuthProvider: AuthProvider = {
     return Promise.resolve({
       id: userData.login.username,
       fullName: userData.login.username,
-      avatar: undefined,
+      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjtZtEb8QpVUytn2in5U59G1Bb10kgVVEXq_C0mUiFIg&s",
+
     });
   },
 };

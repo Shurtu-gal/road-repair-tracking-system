@@ -6,6 +6,8 @@ import {
   TextField,
   DateField,
   ReferenceField,
+  EditButton,
+  ShowButton,
 } from "react-admin";
 import Pagination from "../Components/Pagination";
 import { RESIDENT_TITLE_FIELD } from "../resident/ResidentTitle";
@@ -52,6 +54,8 @@ export const UserList = (props: ListProps): React.ReactElement => {
           <TextField source={MAYOR_TITLE_FIELD} />
         </ReferenceField>
         <TextField label="Roles" source="roles" />
+        <EditButton />
+        <ShowButton />
       </Datagrid>
     </List>
   );
