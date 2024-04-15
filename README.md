@@ -32,45 +32,45 @@ You can access the demo of the application using the following links:
 
 ### **Admin Dashboard and analytics**
 
-    ![Admin Dashboard and analytics](./assets/dashboard.png)
+![Admin Dashboard and analytics](./assets/dashboard.png)
 
 ### **User Registration and Login**
 
-    ![User Registration and Login](./assets/registration.png)
+![User Registration and Login](./assets/registration.png)
 
 ### **List Users and Issues**
 
-    ![List Users and Issues](./assets/users-list.png)
+![List Users and Issues](./assets/users-list.png)
 
 ### **User Summary and Dashboard**
 
-    ![User Summary and Dashboard](./assets/user-show.png)
+![User Summary and Dashboard](./assets/user-show.png)
 
 ### **Edit User and Issue Details**
 
-    ![Edit User and Issue Details](./assets/user-edit.png)
+![Edit User and Issue Details](./assets/user-edit.png)
 
 ### **Create and Update Complaints**
     
-    ![Create and Update Complaints](./assets/create-complaint.png)
+![Create and Update Complaints](./assets/create-complaint.png)
 
 ### **Show and Update Complaints**
 
-    ![Show and Update Complaints](./assets/complaints.png)
+![Show and Update Complaints](./assets/complaints.png)
 
 ### **Precise Summary for Supervisor**
 
-    ![Precise Summary for Supervisor](./assets/area-report.png)
+![Precise Summary for Supervisor](./assets/area-report.png)
 
 ### **Sumamry for Admin**
 
-    ![Sumamry for Admin](./assets/admin-view.png)
+![Sumamry for Admin](./assets/admin-view.png)
 
 ### **Schedule Repairs and Update Status**
 
-    ![Schedule Repairs and Update Status](./assets/repair-schedule.png)
+![Schedule Repairs and Update Status](./assets/repair-schedule.png)
 
 ### **Generate Reports and Analytics**
 
-    ![Generate Reports and Analytics](./assets/report.png)
-    ![Generate Repairs Report](./assets/repair-report.png)
+![Generate Reports and Analytics](./assets/report.png)
+![Generate Repairs Report](./assets/repair-report.png)
