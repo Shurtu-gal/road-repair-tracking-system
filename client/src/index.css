@@ -24,3 +24,7 @@ code {
   color: var(--primary);
   text-decoration: underline;
 }
+
+.App {
+  margin-bottom: 50px;
+}
